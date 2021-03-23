@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+header nav  ul{
+    display: inline;
+    list-style: none;
+}
+.display-inline {
+    display: inline;
+}
+#Highscores {
+    text-align: left;
+}
+
+#timeDisplay {
+    padding-inline-start: 60%;
+}
+
+#timerCount {
+    padding-right: 3rem;
+}
+.quizContent {
+    margin-left: 10%;
+    margin-right: 20%;
+    text-align: center;
+    font-size: 2rem;
+}
+
+#startSection {
+ 
+}
