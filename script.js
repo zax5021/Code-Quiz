@@ -4,11 +4,9 @@ var quizContentEl= document.querySelector(".quizContent");
 var startSectionEl= document.querySelector("#startSection");
 
 var isOver;
-var timeLimitSeconds = 100;
-var highScore = "";
+var score = "";
 var chosenQuestion = "";
-var timer;
-var timerCount;
+var timer = 60;
 var questions = [
     {
         question: 'HTML: What tag is used to underline a word or line of text?', 
@@ -62,6 +60,7 @@ var li3 = document.createElement("li");
 var li4 = document.createElement("li");
 var questionTextEl = document.createElement("div");
 var optionsListEl = document.createElement("ol");
+var scoresEl = document.createElement("p");
 
 optionsListEl.setAttribute("style", "line-height:1.5; font-size: 18px; list-style-position: inside")
 console.log(questions.length)
@@ -98,10 +97,12 @@ function getQuestion (){
         console.log("question number is :"+ qNumber)
         qNumber = qNumber + 1;
         console.log("question number is :"+ qNumber)
+        displayQuestion();
         }}
 
 function displayQuestion(){
     if (isOver){
+        gameOver();
         return;
     } else {
         quizContentEl.innerHTML = "";
@@ -132,10 +133,8 @@ function displayQuestion(){
             lis[i].setAttribute("data-correct", "0")
         }
         console.log(potentialAnswers[i]);
-        }
-        
+        } 
     }};
-    //finish the wrong answer case (placeholder) and move to next question.
 function answerquestion(event){
     var selected = event.target;
     console.log(event.target);
@@ -143,25 +142,59 @@ function answerquestion(event){
     if (selected.matches("li")) {
         var correct = selected.getAttribute("data-correct");
         if (correct !== "1"){
-            alert("wrong")
-        } 
-        startGame();
+            if (timer > 16){
+                timer = timer - 15;
+        } else{
+            timer = 0;
+            timerEl.textContent = 0;
+            isOver = true;
+            gameOver(); 
+    }}
+        getQuestion();
 
     }
+}
+
+function countdown(){
+    var timeInterval = setInterval(function () {
+        timer --;
+        timerEl.textContent = timer;
+        
+        if (timer < 1 ) {
+            timer = 0;
+            clearInterval(timeInterval);
+            
+            timerEl.textContent = 0;
+            isOver = true; 
+            gameOver();
+            
+        } if (isOver) {
+            
+            clearInterval(timeInterval);
+            timerEl.textContent = 0;
+            gameOver();
+        }
+
+    }, 1000);
 }
 
 function startGame () {
     if (!isOver){
     startSectionEl.innerHTML = "";
     getQuestion();
-    displayQuestion();
-    } else {
-    quizContentEl.innerHTML = "Game over!";
+    countdown();
+}};
 
+function gameOver () {
+    if (isOver){
+        score= timer
+        quizContentEl.innerHTML = "";
+        questionTextEl.textContent = "Game over! See how your score compares by viewing highscores."
+        quizContentEl.appendChild(questionTextEl);
+        scoresEl.textContent = "Your Score was " + score ;
+        quizContentEl.appendChild(scoresEl);
     }
-};
-
-
+}
 
 startButton.addEventListener("click", startGame);
 optionsListEl.addEventListener("click", answerquestion);
@@ -170,6 +203,7 @@ function init () {
     shuffleArray(questions);
     qNumber=0
     isOver = false;
+    timerEl.textContent= timer;
 }
 init();
 

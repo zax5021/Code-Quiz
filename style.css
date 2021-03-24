@@ -1,10 +1,13 @@
 * {
     box-sizing: border-box;
 }
-
+html {
+    min-height: 100%;
+}
 header nav  ul{
     display: inline;
     list-style: none;
+    font-size: 1.5rem;
 }
 .display-inline {
     display: inline;
@@ -14,11 +17,16 @@ header nav  ul{
 }
 
 #timeDisplay {
-    padding-inline-start: 60%;
+    padding-inline-start: 50%;
 }
 
 #timerCount {
-    padding-right: 3rem;
+    
+}
+body {
+   
+    background: rgb(2,0,36);
+background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(150,219,233,1) 100%);
 }
 .quizContent {
     margin-left: 10%;
@@ -28,6 +36,7 @@ header nav  ul{
 }
 
 section li {
+    font-size: 1.5rem;
     position: relative;
     margin-top: 5px; 
     border:solid;
@@ -61,4 +70,11 @@ section li:hover {
 }
 section li:hover::after {
     opacity: 1;
+}
+
+button{
+    font-size: 2rem;
+}
+.start-button:hover {
+    cursor: pointer;
 }
