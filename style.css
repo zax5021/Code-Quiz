@@ -27,6 +27,38 @@ header nav  ul{
     font-size: 2rem;
 }
 
-#startSection {
- 
+section li {
+    position: relative;
+    margin-top: 5px; 
+    border:solid;
+    color: white;
+    background-color:grey; 
+    padding-left:10px; 
+    padding-right:10px; 
+    border-radius:25px; 
+    margin-left:25%; 
+    width: fit-content;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+section li::after {
+    position: absolute;
+    z-index: -1;
+    border:solid;
+    color: white;
+    background-color:grey; 
+    border-radius:25px; 
+    width: fit-content;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: opacity 0.3s ease-in-out;
+
+}
+
+section li:hover {
+    transform: scale(1.1, 1.1);
+    cursor: pointer;
+}
+section li:hover::after {
+    opacity: 1;
 }
