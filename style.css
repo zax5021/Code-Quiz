@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 html {
     min-height: 100%;
@@ -10,14 +11,19 @@ header nav  ul{
     font-size: 1.5rem;
 }
 .display-inline {
-    display: inline;
+    display: inline-flex;
 }
 #Highscores {
     text-align: left;
+    width: 250px;
+}
+#Highscores:hover {
+    font-weight: 700;
+    cursor: pointer;
 }
 
 #timeDisplay {
-    padding-inline-start: 50%;
+    padding-inline-start: 45%;
 }
 
 #timerCount {
@@ -29,6 +35,13 @@ body {
 background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(150,219,233,1) 100%);
 }
 .quizContent {
+    margin-left: 10%;
+    margin-right: 20%;
+    text-align: center;
+    font-size: 2rem;
+}
+#scoresSection {
+    margin-top: 25px;
     margin-left: 10%;
     margin-right: 20%;
     text-align: center;
@@ -49,6 +62,7 @@ section li {
     width: fit-content;
     box-shadow: 0 1px 2px rgba(0,0,0,0.15);
     transition: all 0.3s ease-in-out;
+    font-family: monospace;
 }
 
 section li::after {
@@ -72,8 +86,18 @@ section li:hover::after {
     opacity: 1;
 }
 
+.scores-list {
+    margin: auto;
+}
+
 button{
     font-size: 2rem;
+}
+input {
+    font-size: 1.5rem;
+}
+ #save {
+    font-size:  1.5rem; 
 }
 .start-button:hover {
     cursor: pointer;

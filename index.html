@@ -20,9 +20,16 @@
     <section class="quizContent">
         <div id="startSection">
             <h2> Coding Quiz!</h2>
-            <p> Test yourself by competing in a Code Quiz. Answer questions as quick as you can within the alotted time. Incorrect answers will deduct time remaining. Time remaining at the end of the quiz will be you score. Can you get a high score? </p>
+            <p> Test yourself by competing in a Code Quiz. Answer questions as quick as you can within the alotted time. Incorrect answers will deduct time remaining. Time remaining at the end of the quiz will be you score. Each wrong answer will deduct your time by 15 seconds! Can you get a high score? </p>
             <button class="start-button">Start Quiz</button>
-        </div>   
+        </div>  
+    </section>
+    <section id="scoresSection" style="display:none;">
+        <form id="initials-form" data-state="hidden">
+            <label for="score-initials">Enter your initials: </label>
+            <input type="text" placeholder="initials here" name="score-initials" id="score-initials" maxlength="3"/>
+            <button id="save">SAVE</button>
+        </form>
     </section>
     <script src="./script.js"></script>   
 </body>
