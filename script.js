@@ -296,9 +296,10 @@ function init () {
     qNumber=0
     isOver = false;
     timerEl.textContent= timer;
+    if (localStorage.getItem("globalHighScores") !== null){
     storedScores = JSON.parse(localStorage.getItem("globalHighScores"));
     sortScores();
-}
+}}
 init();
 
 console.log(questions);
