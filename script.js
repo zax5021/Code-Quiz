@@ -73,7 +73,7 @@ clearButton.textContent = "Clear Highscores";
 
 
 optionsListEl.setAttribute("style", "line-height:1.5; font-size: 18px; list-style-position: inside")
-console.log(questions.length)
+// console.log(questions.length)
 
 function getQuestion (){
     if(qNumber >= questions.length){
@@ -84,9 +84,9 @@ function getQuestion (){
         // chosenQuestion = questions[Math.floor(Math.random() * questions.length)];
         questionText = chosenQuestion.question;
         delete chosenQuestion.question
-        console.log("questionText: " + questionText);
+        // console.log("questionText: " + questionText);
         options = Object.values(chosenQuestion);
-        console.log(typeof options);
+        // console.log(typeof options);
         function shuffle(options) {
             var n = options.length, t, i;
         
@@ -102,11 +102,11 @@ function getQuestion (){
             return ;
         }
         shuffle(options);
-        console.log(options);
+        // console.log(options);
         potentialAnswers = options;
-        console.log("question number is :"+ qNumber)
+        // console.log("question number is :"+ qNumber)
         qNumber = qNumber + 1;
-        console.log("question number is :"+ qNumber)
+        // console.log("question number is :"+ qNumber)
         displayQuestion();
         }}
 
@@ -132,17 +132,17 @@ function displayQuestion(){
 
 
         var lis = optionsListEl.querySelectorAll("li");
-        console.log(lis);
+        // console.log(lis);
         for (var i = 0; i < lis.length; i++) {
         lis[i].textContent = potentialAnswers[i];
-        console.log(potentialAnswers[i])
+        // console.log(potentialAnswers[i])
         // lis[i].setAttribute("style", "margin-top: 5px; border:solid;color: white; background-color:grey; padding-left:10px; padding-right:10px; border-radius:25px; margin-left:25%; width: fit-content;")
         if(answerKey.includes(potentialAnswers[i])){
             lis[i].setAttribute("data-correct", "1")
         } else {
             lis[i].setAttribute("data-correct", "0")
         }
-        console.log(potentialAnswers[i]);
+        // console.log(potentialAnswers[i]);
         } 
     }};
 function answerquestion(event){
@@ -219,29 +219,6 @@ function saveHighScores(){
   storedScores.push(playerHighScore);
   localStorage.setItem("globalHighScores", JSON.stringify(storedScores));
 }
-function renderTodos() { // the function that checks to see if there's any todo's stored in localStorage, and renders those on the page if so.
-  // TODO: Describe the functionality of the following two lines of code.
-  todoList.innerHTML = ""; // resetting html on unordered list.
-  todoCountSpan.textContent = todos.length; //setting the todo count to = the number of todos
-  
-  // TODO: Describe the functionality of the following `for` loop. // for each to do in the list, creating an element with the data-index of i, and creating the complete button and appending it to the html under todo-list. 
-  for (var i = 0; i < todos.length; i++) {
-    var todo = todos[i];
-
-    var li = document.createElement("li");
-    li.textContent = todo;
-    li.setAttribute("data-index", i);
-
-    var button = document.createElement("button");
-    button.textContent = "Complete ✔️";
-
-    li.appendChild(button);
-    todoList.appendChild(li);
-  }
-}
-
-
-
 function sortScores(){
     storedScores.sort(function (a,b) {
         return b.currentScore- a.currentScore;
@@ -302,4 +279,4 @@ function init () {
 }}
 init();
 
-console.log(questions);
+// console.log(questions);
